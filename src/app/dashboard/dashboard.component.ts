@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import * as Chartist from 'chartist';
 
 @Component({
@@ -7,8 +9,17 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  data: any;
+  eventData: any[] = [];
 
-  constructor() { }
+  constructor(private http: HttpClient, private router: Router) { } // Declare Router as a dependency
+
+  handleDetailEventClick(event: any) {
+    // Perform actions when the button is clicked
+    this.router.navigate(['/admin/event', event.id_event]);
+    // Add more actions as needed
+  }
+
   startAnimationForLineChart(chart){
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -42,6 +53,7 @@ export class DashboardComponent implements OnInit {
 
       seq = 0;
   };
+
   startAnimationForBarChart(chart){
       let seq2: any, delays2: any, durations2: any;
 
@@ -65,7 +77,16 @@ export class DashboardComponent implements OnInit {
 
       seq2 = 0;
   };
+  
   ngOnInit() {
+    this.http.get<any[]>('http://localhost:9000/DevDream/Event/all')
+    .subscribe(data => {
+      console.log(window.location.origin);
+      console.log(data);
+      this.eventData = data;
+    }, error => {
+      console.error(error);
+    });
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {

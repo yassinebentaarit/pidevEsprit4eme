@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Modifier l'événement</h2>
+
+<mat-dialog-content class="mat-typography">
+  <form>
+    <div class="form-group">
+      <label for="eventName">Nom de l'événement</label>
+      <input class="form-control" [(ngModel)]="data.eventName" name="eventName" id="eventName">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea class="form-control" [(ngModel)]="data.description" name="description" id="description"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="eventStart">Date de début</label>
+      <input type="date" class="form-control" [(ngModel)]="data.eventStart" name="eventStart" id="eventStart">
+    </div>
+    <div class="form-group">
+      <label for="eventEnd">Date de fin</label>
+      <input type="date" class="form-control" [(ngModel)]="data.eventEnd" name="eventEnd" id="eventEnd">
+    </div>
+    <div class="form-group">
+      <label for="budget">Budget</label>
+      <input type="number" class="form-control" [(ngModel)]="data.budget" name="budget" id="budget">
+    </div>
+    <!-- Add the input field for poster image -->
+    <div class="form-group">
+      <label for="poster">Affiche de l'événement</label>
+      <input type="file" (change)="onPosterSelected($event)" accept="image/*" id="poster" name="poster" style="display: none;">
+      <!-- <button mat-raised-button color="primary" (click)="selectPoster()">Sélectionner une affiche</button> -->
+    </div>
+    
+    <!-- Add more fields as needed -->
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button color="primary" (click)="submitEdit()">Enregistrer</button>
+</mat-dialog-actions>

@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 
-import { DashboardComponent } from '../../dashboard/dashboard.component';
 import { UserProfileComponent } from '../../user-profile/user-profile.component';
 import { TableListComponent } from '../../table-list/table-list.component';
 import { TypographyComponent } from '../../typography/typography.component';
@@ -8,51 +7,55 @@ import { IconsComponent } from '../../icons/icons.component';
 import { MapsComponent } from '../../maps/maps.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { UpgradeComponent } from '../../upgrade/upgrade.component';
+import { HomeEventsComponent } from '../../home-events/home-events.component';
+import { DashboardComponent } from 'app/dashboard/dashboard.component';
+import { ShoweventComponent } from 'app/events/showevent/showevent.component';
+import { AddeventComponent } from 'app/events/addevent/addevent.component';
+import { EventComponent } from 'app/event/event.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
-    //   path: 'admin',
+    //   path: '',
     //   children: [ {
     //     path: 'dashboard',
     //     component: DashboardComponent
     // }]}, {
-    // path: 'admin',
+    // path: '',
     // children: [ {
     //   path: 'userprofile',
     //   component: UserProfileComponent
     // }]
     // }, {
-    //   path: 'admin',
+    //   path: '',
     //   children: [ {
     //     path: 'icons',
     //     component: IconsComponent
     //     }]
     // }, {
-    //     path: 'admin',
+    //     path: '',
     //     children: [ {
     //         path: 'notifications',
     //         component: NotificationsComponent
     //     }]
     // }, {
-    //     path: 'admin',
+    //     path: '',
     //     children: [ {
     //         path: 'maps',
     //         component: MapsComponent
     //     }]
     // }, {
-    //     path: 'admin',
+    //     path: '',
     //     children: [ {
     //         path: 'typography',
     //         component: TypographyComponent
     //     }]
     // }, {
-    //     path: 'admin',
+    //     path: '',
     //     children: [ {
     //         path: 'upgrade',
     //         component: UpgradeComponent
     //     }]
     // }
-   
     { path: 'dashboard',      component: DashboardComponent },
     { path: 'user-profile',   component: UserProfileComponent },
     { path: 'table-list',     component: TableListComponent },
@@ -60,46 +63,8 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'maps',           component: MapsComponent },
     { path: 'notifications',  component: NotificationsComponent },
-    { path: 'upgrade',        component: UpgradeComponent }
-
-    // {
-    //     path: '',
-    //     children: [
-    //         {
-    //             path: 'admin/dashboard',
-    //             component: DashboardComponent
-    //         },
-    //         {
-    //             path: 'admin/user-profile',
-    //             component: UserProfileComponent
-    //         },
-    //         {
-    //             path: 'admin/table-list',
-    //             component: TableListComponent
-    //         },
-    //         {
-    //             path: 'admin/typography',
-    //             component: TypographyComponent
-    //         },
-    //         {
-    //             path: 'admin/icons',
-    //             component: IconsComponent
-    //         },
-    //         {
-    //             path: 'admin/maps',
-    //             component: MapsComponent
-    //         },
-    //         {
-    //             path: 'admin/notifications',
-    //             component: NotificationsComponent
-    //         },
-    //         {
-    //             path: 'admin/upgrade',
-    //             component: UpgradeComponent
-    //         }
-    //     ]
-    // }
-
-
+    { path: 'upgrade',        component: UpgradeComponent },
+    { path: 'event/:id_event', component: ShoweventComponent }, // Add the route for event details
+    { path: 'event', component: EventComponent } // Add the route for event details
 
 ];

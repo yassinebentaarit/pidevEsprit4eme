@@ -11,7 +11,6 @@ import { filter, Subscription } from 'rxjs';
   styleUrls: ['./admin-layout.component.scss']
 })
 export class AdminLayoutComponent implements OnInit {
-    
   private _router: Subscription;
   private lastPoppedUrl: string;
   private yScrollStack: number[] = [];
@@ -158,5 +157,6 @@ export class AdminLayoutComponent implements OnInit {
     // Check if the current route is the home page
     return this.router.url === '/';
   }
+
 
 }

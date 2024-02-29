@@ -5,14 +5,7 @@
     </div>
     <div class="main-panel">
         <app-navbar></app-navbar>
-        <ng-container *ngIf="isHomePage(); else notHomePage">
-            <!-- Render app-home-events component if it's the home page -->
-            <app-home-events></app-home-events>
-          </ng-container>
-          <ng-template #notHomePage>
-            <!-- Render router-outlet if it's not the home page -->
-            <router-outlet></router-outlet>
-          </ng-template>
+        <router-outlet></router-outlet>
         <div *ngIf="isMaps('maps')">
             <app-footer></app-footer>
         </div>
